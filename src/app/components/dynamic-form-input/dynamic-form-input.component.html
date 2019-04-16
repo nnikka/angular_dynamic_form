@@ -1,0 +1,33 @@
+<div [formGroup]="form">
+  <div [ngSwitch]="input.inputType">
+    <mat-form-field *ngSwitchCase="'string'" class="df-full-width">
+      <input matInput [placeholder]="input.label" [formControlName]="input.name" [id]="input.name" [type]="input.type">
+      <mat-error *ngIf="!isValid">
+        {{input.label}} is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field *ngSwitchCase="'number'" class="df-full-width">
+      <input matInput [placeholder]="input.label" [formControlName]="input.name" [id]="input.name" [type]="input.type">
+      <mat-error *ngIf="!isValid">
+        {{input.label}} is required
+      </mat-error>
+    </mat-form-field>
+    <div class="df-checkbox-container" *ngSwitchCase="'checkbox'">
+      <mat-checkbox color="primary" class="example-margin" [formControlName]="input.name" [id]="input.name">
+        {{input.label}}
+      </mat-checkbox>
+      <mat-error *ngIf="!isValid && touched">
+        {{input.label}} is required
+      </mat-error>
+    </div>
+    <mat-form-field *ngSwitchCase="'date'" class="df-full-width">
+      <input matInput [matDatepicker]="picker" [placeholder]="input.label" [formControlName]="input.name"
+        [id]="input.name">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="!isValid && touched">
+        {{input.label}} is required
+      </mat-error>
+    </mat-form-field>
+  </div>
+</div>

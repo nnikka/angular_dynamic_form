@@ -1,0 +1,16 @@
+<div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+
+    <div *ngFor="let input of inputs" class="form-row">
+      <app-dynamic-form-input [input]="input" [form]="form"></app-dynamic-form-input>
+    </div>
+    <br>
+    <div class="form-row">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Save</button>
+    </div>
+  </form>
+
+  <div *ngIf="payLoad" class="form-row">
+    <strong>Saved the following values</strong><br>{{payLoad}}
+  </div>
+</div>
