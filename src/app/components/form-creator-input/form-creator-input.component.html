@@ -1,0 +1,25 @@
+<mat-card class="df-input-container">
+  <form [formGroup]="form">
+    <mat-form-field class="df-input-full-width">
+      <mat-label>Input Type</mat-label>
+      <mat-select formControlName="type">
+        <mat-option *ngFor="let type of inputTypes" [value]="type">
+          {{type}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="df-input-full-width">
+      <input matInput placeholder="Label" formControlName="label">
+    </mat-form-field>
+    <div>
+      <mat-checkbox color="primary" formControlName="required">
+        Required
+      </mat-checkbox>
+    </div>
+  </form>
+  <div *ngIf="dropdownIsSelected">
+    <br>
+    <p><strong>Add options for dropdown</strong></p>
+    <app-options-form (onChangeOptions)="handleOptionsChange($event)"></app-options-form>
+  </div>
+</mat-card>

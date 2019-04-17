@@ -1,0 +1,11 @@
+<div>
+  <div>
+    <button mat-raised-button color="accent" (click)="generateNewOptionInput()">Add option</button>
+  </div>
+  <div>&nbsp;</div>
+  <form [formGroup]="form">
+    <mat-form-field *ngFor="let option of objectKeys(form.controls)" class="df-input-full-width">
+      <input matInput [placeholder]="option" [formControlName]="option">
+    </mat-form-field>
+  </form>
+</div>

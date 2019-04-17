@@ -8,14 +8,20 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AppComponent } from './app.component'
 import { LayoutComponent } from './layout/layout.component'
 import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component'
-import { DynamicFormInputComponent } from './components/dynamic-form-input/dynamic-form-input.component'
+import { DynamicFormInputComponent } from './components/dynamic-form-input/dynamic-form-input.component';
+import { FormCreatorComponent } from './components/form-creator/form-creator.component';
+import { FormCreatorInputComponent } from './components/form-creator-input/form-creator-input.component';
+import { OptionsFormComponent } from './components/options-form/options-form.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     LayoutComponent,
     DynamicFormComponent,
-    DynamicFormInputComponent
+    DynamicFormInputComponent,
+    FormCreatorComponent,
+    FormCreatorInputComponent,
+    OptionsFormComponent
   ],
   imports: [
     BrowserModule,

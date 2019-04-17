@@ -16,30 +16,11 @@ export class AppComponent {
   inputs: InputBase<any>[];
 
   constructor() {
-    this.inputs = [
-      new TextInput({
-        name: 'Name',
-        label: 'First Name',
-        type: 'text',
-        required: true
-      }),
-      new NumberInput({
-        name: 'Namaae',
-        label: 'First Name',
-        type: 'number',
-        required: true
-      }),
-      new CheckboxInput({
-        name: 'Nameasdasdasd',
-        label: 'First Nameasa',
-        required: true
-      }),
-      new DateInput({
-        name: 'date',
-        label: 'date',
-        required: true
-      }),
-    ]
+    this.inputs = []
+  }
+
+  handeGenerateForm($event:InputBase<any>[]) {
+    this.inputs = $event
   }
 
 }

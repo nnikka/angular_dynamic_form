@@ -1,0 +1,21 @@
+<div>
+  <div>
+    <button mat-raised-button color="accent" (click)="generateNewInputConfiguration()">Add input</button>
+     &nbsp;
+    <button mat-raised-button color="warn" (click)="reset()">Clear</button>
+  </div>
+  <br>
+  <div *ngFor="let input of objectKeys(inputsData)">
+    <div class="df-input-header">
+      <strong># {{input}}</strong>
+    </div>
+    <app-form-creator-input [inputTypes]="inputTypes"
+      (changeInputConfiguration)="handeInputConfigChange(input, $event)">
+    </app-form-creator-input>
+    <br>
+  </div>
+  <br><br>
+  <div *ngIf="objectKeys(inputsData).length > 0">
+    <button mat-raised-button color="primary" (click)="generateForm()">Generate form</button>
+  </div>
+</div>

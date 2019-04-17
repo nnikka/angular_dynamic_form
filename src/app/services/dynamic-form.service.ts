@@ -8,7 +8,7 @@ import InputBase from '../models/InputBase'
 export class DynamicFormService {
   constructor() {}
 
-  create(inputs: InputBase<any>[]) {
+  public create(inputs: InputBase<any>[]) {
     let form: any = {}
     inputs.forEach(input => {
       form[input.name] = input.required

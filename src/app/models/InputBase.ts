@@ -4,6 +4,7 @@ export default class InputBase<T> {
   name: string
   label: string
   required: boolean
+  options: string[]
 
   constructor(
     options: {
@@ -17,7 +18,7 @@ export default class InputBase<T> {
     this.name = options.name
     this.value = options.value
     this.label = options.label || ''
-    this.required = !!options.required
+    this.required = options.required
     this.inputType = options.inputType || ''
   }
 }

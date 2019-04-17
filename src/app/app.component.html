@@ -1,14 +1,13 @@
 <app-layout>
-  <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
-    <div class="item item-1" fxFlex>Item 1</div>
-    <div class="item item-3" fxFlex>
-      <app-dynamic-form [inputs]="inputs"></app-dynamic-form>
-    </div>
+  <div>
+    <h1 class="df-app-header">Dynamic form app</h1>
   </div>
-  <br>
   <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
     <div class="item item-1" fxFlex>
-
+      <app-form-creator (onGenerateForm)="handeGenerateForm($event)"></app-form-creator>
+    </div>
+    <div class="item item-2" fxFlex>
+      <app-dynamic-form [inputs]="inputs"></app-dynamic-form>
     </div>
   </div>
 </app-layout>

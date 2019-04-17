@@ -1,11 +1,10 @@
 import InputBase from './InputBase'
 
-export default class TextboxQuestion extends InputBase<string> {
-  inputType = 'number';
-  type: string;
+export default class NumberInput extends InputBase<string> {
+  inputType: string = 'number';
+  type: string = 'number';
 
   constructor(options: {} = {}) {
     super(options);
-    this.type = options['type'] || '';
   }
 }

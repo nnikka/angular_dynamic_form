@@ -1,9 +1,14 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core'
+import { CommonModule } from '@angular/common'
 import { MatButtonModule } from '@angular/material'
-import { MatInputModule } from '@angular/material/input';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import  {MatNativeDateModule, MatDatepickerModule } from '@angular/material';
+import { MatInputModule } from '@angular/material/input'
+import { MatCheckboxModule } from '@angular/material/checkbox'
+import {
+  MatNativeDateModule,
+  MatDatepickerModule,
+  MatSelectModule,
+  MatCardModule
+} from '@angular/material'
 
 @NgModule({
   declarations: [],
@@ -13,14 +18,18 @@ import  {MatNativeDateModule, MatDatepickerModule } from '@angular/material';
     MatInputModule,
     MatCheckboxModule,
     MatNativeDateModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatSelectModule,
+    MatCardModule
   ],
   exports: [
     MatButtonModule,
     MatInputModule,
     MatCheckboxModule,
     MatNativeDateModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatSelectModule,
+    MatCardModule
   ]
 })
-export class MaterialModule { }
+export class MaterialModule {}

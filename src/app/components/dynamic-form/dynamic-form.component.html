@@ -1,16 +1,28 @@
-<div>
-  <form (ngSubmit)="onSubmit()" [formGroup]="form">
-
-    <div *ngFor="let input of inputs" class="form-row">
-      <app-dynamic-form-input [input]="input" [form]="form"></app-dynamic-form-input>
-    </div>
-    <br>
-    <div class="form-row">
-      <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Save</button>
-    </div>
-  </form>
-
+<mat-card class="df-form-container">
+  <mat-card-header>
+    <mat-card-title>Generated form</mat-card-title>
+  </mat-card-header>
+  <div class="df-mepty-form-container" *ngIf="formIsEmpty; else dynamicForm">
+    <strong>Form is empty</strong>
+  </div>
+  <ng-template #dynamicForm>
+    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+      <div *ngFor="let input of inputs" class="form-row">
+        <app-dynamic-form-input [input]="input" [form]="form"></app-dynamic-form-input>
+      </div>
+      <br>
+      <div class="form-row">
+        <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Save</button>
+      </div>
+    </form>
+  </ng-template>
   <div *ngIf="payLoad" class="form-row">
     <strong>Saved the following values</strong><br>{{payLoad}}
   </div>
-</div>
+</mat-card>
+<br>
+<mat-card class="df-form-container">
+  <p class="df-json-txt">
+    {{formResult}}
+  </p>
+</mat-card>
