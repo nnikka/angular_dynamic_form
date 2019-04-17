@@ -1,15 +1,17 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms'
+import { Subscription } from 'rxjs'
 
 @Component({
   selector: 'app-options-form',
   templateUrl: './options-form.component.html',
   styleUrls: ['./options-form.component.css']
 })
-export class OptionsFormComponent implements OnInit {
+export class OptionsFormComponent implements OnInit, OnDestroy {
 
   @Output() onChangeOptions: EventEmitter<string[]> = new EventEmitter<string[]>()
 
+  subscription: Subscription;
   objectKeys = Object.keys;
   form: FormGroup;
   optionCount: number = 1;
@@ -34,9 +36,13 @@ export class OptionsFormComponent implements OnInit {
   }
 
   onOptionChange() {
-    this.form.valueChanges.subscribe(val => {
+    this.subscription = this.form.valueChanges.subscribe(val => {
       this.onChangeOptions.emit(Object.values(val))
     })
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe()
   }
 
 }

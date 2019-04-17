@@ -40,7 +40,6 @@ export class InputService {
         })
       )
     })
-    console.log(result)
     return result
   }
 }

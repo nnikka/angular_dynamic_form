@@ -20,6 +20,6 @@ export class DynamicFormInputComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    console.log(this.input)
+
   }
 }
